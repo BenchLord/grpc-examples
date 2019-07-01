@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+service People {
+  rpc GetPerson (Id) returns (Person);
+  rpc GetPeople (Empty) returns (stream Person);
+  rpc AddPeople (stream Person) returns (Empty);
+}
+
+message Person {
+  string name = 1;
+  int64 age = 2;
+  int64 id = 3;
+}
+
+message Empty {}
+
+message Id {
+  int64 value = 1;
+}
